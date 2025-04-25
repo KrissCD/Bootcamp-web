@@ -1,5 +1,6 @@
 /html/Vjezba_git.txt
 html/Vjezba_git.txt
+<<<<<<< HEAD
 HTML\Vjezba 1-GitIgnore
 html/Vjezba 1-GitIgnore
 HTML\Vjezba 1-GitIgnore.txt
@@ -9,3 +10,5 @@ Ignore
 html/Ignore
 .Ignore
 HTML/try2
+=======
+>>>>>>> parent of f7db543 (random)
