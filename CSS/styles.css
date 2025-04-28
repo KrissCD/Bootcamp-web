@@ -1,0 +1,17 @@
+* {
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+li {
+    color: red;
+}
+.highlight {
+    color: black;
+}
+#unique {
+    color: green;
+}
+li[data-type="Attribute"] {
+    color: blue;
+}
