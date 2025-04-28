@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: Arial, sans-serif;
+            color: black;
+        }
+
+        li {
+            color: red;
+        }
+        .highlight {
+            color: black;
+        }
+        #unique {
+            color: green;
+        }
+        li[data-type="Attribute"] {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Selectors</h1>
+    <h2>Applying CSS to Different Parts of HTML</h2>
+
+    <ul>
+        <ol>
+            <li>The elements selector targets elements based on their HTML tag name.</li>
+            <li class="highlight">Class selectors target elements based on the value of the class attribute</li>
+            <li id="unique">ID selectors target elements based on the value of the id attribute</li>
+            <li data-type="Attribute">Attribute selectors target elements based on their attributes and values</li>
+            <li class="highlight">The universal selector targets all elements</li>
+        </ol>
+    </ul>
+</body>
+</html>
