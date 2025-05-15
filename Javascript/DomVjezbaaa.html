@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS DOM</title>
+</head>
+<body>
+
+  <h1 id="title">WEB STRANICA</h1>
+
+  <script>
+    const googleLink = document.createElement("a");
+    googleLink.href = "https://www.google.com";
+    googleLink.textContent = "Google";
+    googleLink.id = "google-link";
+
+    document.getElementById("title").insertAdjacentElement("afterend", googleLink);
+    document.getElementById("google-link").style.color = "red";
+  </script>
+
+</body>
+</html>

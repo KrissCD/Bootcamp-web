@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Lista</title>
+</head>
+<body>
+  <input type="text" id="itemInput" placeholder="Unesi stavku">
+  <button onclick="dodajStavku()">Dodaj</button>
+  <ul id="lista">
+    <li>Prvi</li>
+    <li>Drugi</li>
+    <li>Treci</li>
+  </ul>
+
+  <script>
+    function dodajStavku() {
+      const input = document.getElementById('itemInput');
+      const tekst = input.value.trim();
+      if (tekst === '') return;
+
+      const novaStavka = document.createElement('li');
+      novaStavka.textContent = tekst;
+
+      document.getElementById('lista').appendChild(novaStavka);
+      input.value = ''; 
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+    <script>
+        function add(x, y){
+            return x + y;
+        }
+        function subtract(x, y){
+            return x - y;
+        }
+        function multiply(x, y){
+            return x * y;
+        }
+        function divide(x, y){
+            return x / y;
+        }
+        function operate(operator, x, y){
+            switch(operator){
+                case '+':
+                    return add(x, y);
+                case '-':
+                    return subtract(x, y);
+                case '*':
+                    return multiply(x, y);
+                case '/':
+                    return divide(x, y);
+            }
+        }
+       console.log(operate('+', 5, 3));
+       console.log(operate('-', 5, 3));
+       console.log(operate('*', 5, 3));
+       console.log(operate('/', 5, 3));
+   </script>
+
+</body>
+
+</html>
