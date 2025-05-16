@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function Car(brand, model, year, color) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.color = color;
+        this.getCarInfo = function() {
+            let msg = "This car is a " + this.brand + " " + this.model + " from " + this.year;
+            if (this.color) {
+                msg += " and its color is " + this.color;
+            }
+            console.log(msg);
+            if (this.color === "red") {
+                console.log("This car is red");
+            }
+        };
+    }
+
+    var myCar = new Car("BMW", "M4 CSL", 2025, "blue");
+    myCar.getCarInfo();
+
+    var myCar2 = new Car("Ferrari", "Portofino M", 2020, "red");
+    myCar2.getCarInfo();
+</script>
+</body>
+</html>

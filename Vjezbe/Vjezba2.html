@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>Add now</button>
+    <ul>
+    </ul>
+
+<script>
+    // moram dograbiti sve potrebne element
+
+    function add(x, y){
+        return x+y;
+    }
+
+    function multiply(x,y){
+        return x*y;
+    }
+
+    function substract (x,y){
+        return xy;
+    }
+
+    function calculate(x,y,operator){
+        return operator(x,y);
+    }
+
+    //console.log(calculate(5,3,add));
+    //console.log(calculate(5,3,multiply));
+
+    const zivotinja = {
+        vrsta: "Pas",
+        ime: "Rex",
+        dob: 5,
+        domestic: true,
+        omiljenaHrana: ["tenisice", "knjige"]
+    }
+
+    const zivotinja2 = {
+        vrsta: "Macka",
+        ime: "Rex",
+        dob: 5,
+        domestic: true,
+        omiljenaHrana: ["tenisice", "knjige"]
+    }
+
+    function provjeriZivinu(zivina){
+
+        if(zivina.domestic){
+           // console.log(zivina.ime);
+        }
+    }
+    provjeriZivinu(zivotinja);
+
+    function Zivotinja(vrstaInit, imeInit, dobInit, domesticInit, omiljenaHranaInit){
+        this.vrsta = vrstaInit;
+        this.ime = imeInit;
+        this.dob = dobInit;
+        this.domestic = domesticInit;
+        this.omiljenaHrana = omiljenaHranaInit;
+        this.isALive = function(){
+            return true;
+        }
+    }
+
+    let pas = new Zivotinja("Pas", "Dodo", 5, true, ["Kosti"]);
+
+    const input = prompt("daje ime property");
+    const inputVal = prompt("daje value property");
+
+    pas[input] = inputVal;
+
+    console.log(pas);
+
+
+</script>    
+</body>
+</html>
