@@ -1,0 +1,16 @@
+{
+  "target": "ES2022",
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "allowJs": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": false,
+    "module": "NodeNext",
+    "outDir": "dist",
+    "sourceMap": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"]
+  }
+}
