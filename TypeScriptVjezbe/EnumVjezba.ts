@@ -7,7 +7,7 @@
 //implemenirati funkciju get Admins 0
 //Potpis: (users: User[]) => User[] 0
 //Prolazi kroz svaki User u nizu i vraca samo one cija je role === Role.Admin 0
-// pozvati get Admins(users) i ispisati konzolu name svakog administratora 0
+//pozvati get Admins(users) i ispisati konzolu name svakog administratora 0
 
 enum Role {
   Admin,
