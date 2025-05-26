@@ -1,7 +1,7 @@
 // App.jsx
 import React from "react";
 import Card from "./Card";
-import contacts from "./Contacts"; 
+import contacts from "./Cards/Contacts"; 
 import styles from "./Styles.css"; 
 
 function App() {
