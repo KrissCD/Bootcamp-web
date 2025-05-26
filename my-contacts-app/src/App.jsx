@@ -1,6 +1,8 @@
+// App.jsx
 import React from "react";
-import Card from "../Components/Card";
-import contacts from "../Components/Contacts";
+import Card from "./Card";
+import contacts from "./Contacts"; 
+import styles from "./Styles.css"; 
 
 function App() {
   return (
@@ -20,3 +22,4 @@ function App() {
 }
 
 export default App;
+
