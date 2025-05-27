@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function Clock() {
-  const [currentTime, setCurrentTime] = useState('');
+  const [time, setTime] = useState('');
 
-  const showCurrentTime = () => {
-    const now = new Date();
-    const timeString = now.toLocaleTimeString('hr-HR', { hour12: false });
-    setCurrentTime(timeString);
-  };
+  const updateTime = () => setTime(new Date().toLocaleTimeString('hr-HR', { hour12: false }));
+
+  useEffect(() => {
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>{currentTime}</h1>
-      <button id="get-time-btn" onClick={showCurrentTime}>
-        Get Time
-      </button>
-    </div>
+    <>
+      <h1>{time}</h1>
+      <button id="get-time-btn" onClick={updateTime}>Get Time</button>
+    </>
   );
 }
 
