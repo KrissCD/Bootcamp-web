@@ -18,5 +18,3 @@ const contacts = [
     email: "gmail@chucknorris.com"
   }
 ];
-
-export default contacts
