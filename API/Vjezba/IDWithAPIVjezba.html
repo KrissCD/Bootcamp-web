@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Vježba: Dohvati korisnika i postove</title>
+</head>
+<body>
+  <h1>Provjeri konzolu</h1>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    async function fetchUserAndPosts() {
+      try {
+        //Dohvati korisnika s ID-em 
+        const userResponse = await axios.get('https://jsonplaceholder.typicode.com/users/1');
+        const user = userResponse.data;
+        console.log(`Korisnik: ${user.name}`);
+
+        //Dohvati postove tog korisnika
+        const postsResponse = await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${user.id}`);
+        const posts = postsResponse.data;
+
+        //Ispiši naslove postova
+        console.log('Postovi:');
+        posts.forEach(post => {
+          console.log(`- ${post.title}`);
+        });
+
+      } catch (error) {
+        console.error('Došlo je do greške:', error.message);
+      }
+    }
+    fetchUserAndPosts();
+  </script>
+</body>
+</html>
