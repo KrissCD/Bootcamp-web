@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Data Fetcher</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    label, input, button { margin: 5px; }
+    .user-info { margin-top: 20px; }
+  </style>
+</head>
+<body>
+
+  <h2>Get User Data</h2>
+
+  <input type="text" id="usernameInput" placeholder="Enter username" />
+  <button onclick="getUserData()">Get User Data</button>
+
+  <div class="user-info" id="userInfo"></div>
+
+  <script>
+    function getUserData() {
+      const username = document.getElementById('usernameInput').value;
+      const url = `https://jsonplaceholder.typicode.com/users?username=${username}`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          if (data.length === 0) {
+            document.getElementById('userInfo').innerHTML = "<p>No user found.</p>";
+            return;
+          }
+
+          const user = data[0];
+          document.getElementById('userInfo').innerHTML = `
+            <h3>${user.name}</h3>
+            <p><strong>Email:</strong> ${user.email}</p>
+            <p><strong>Phone:</strong> ${user.phone}</p>
+            <p><strong>Company:</strong> ${user.company.name}</p>
+          `;
+        })
+        .catch(error => {
+          document.getElementById('userInfo').innerHTML = "<p>Error fetching data.</p>";
+          console.error(error);
+        });
+    }
+  </script>
+
+</body>
+</html>
