@@ -1,26 +1,16 @@
-import Card from "./Card.jsx";
-import contacts from "../contacts.js"
+import React from "react";
 
-
-function App() {
-
-  console.log(contacts);
-
-  var allContacts = contacts.map(function(contact){
-    return(
-      <Card 
-        name = {contact.name} 
-        url = {contact.imgURL} 
-        tel = {contact.phone} 
-        email = {contact.email} />
-    )
-  })
-
-  return(
-    <div>
-       {allContacts}
-    </div>
-  )
+export default function Contact({ contacts, onDelete }) {
+  return (
+    <ul>
+      {contacts.map((c, i) => (
+        <li key={i}>
+          {c}
+          <button onClick={() => onDelete(i)} style={{ marginLeft: 8 }}>
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
 }
-
-export default App

@@ -1,62 +1,62 @@
-import { useRef } from "react"
-import App from "./contact"
-import { useState } from 'react';
-import Contact from "./contact.jsx"
+import React, { useRef, useState } from "react";
 
-function Auth() {
-    const [rege, setAcc] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+function Auth({ onLogin }) {
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [error, setError] = useState("");
+  const inputUser = useRef(null);
+  const inputPass = useRef(null);
+  const inputConfPass = useRef(null);
 
-    const User = "John";
-    const Pass = "Doe";
-    const inputUser = useRef(null)
-    const inputPass = useRef(null)
+  // Hardcoded user for login demo
+  const USER = "John";
+  const PASS = "Doe";
 
-    const [inpUser, setSavedUser] = useState('');
-    const [inpPass, setSavedPass] = useState('');
-    const [inputConfPass, setSaveConfPass] = useState('')
-
-    const handleSave = () => {
-        setSavedUser(inputUser.current.value);
-        setSavedPass(inputPass.current.value);
-
-        if (User == inpUser && Pass == inpPass) {
-            setIsLoggedIn(true);
-        } else {
-            alert("Hello!");
-        }
+  const handleLogin = () => {
+    const username = inputUser.current.value;
+    const password = inputPass.current.value;
+    if (username === USER && password === PASS) {
+      onLogin(username);
+    } else {
+      setError("Wrong username or password!");
     }
+  };
 
-    const makeAcc = () => {
-        setAcc(true);
+  const handleRegister = () => {
+    const username = inputUser.current.value;
+    const password = inputPass.current.value;
+    const confPass = inputConfPass.current.value;
+    if (!username || !password || !confPass) {
+      setError("Fill all fields!");
+      return;
     }
+    if (password !== confPass) {
+      setError("Passwords do not match!");
+      return;
+    }
+    // Registration logic (for demo, just allow login with this user)
+    setError("Registered! Now log in with John/Doe.");
+    setIsRegistering(false);
+  };
 
-    if (isLoggedIn) {
-        return <Contact />;
-    } else if (rege) {
-        (
-            <div className="logInField">
-                <h3>Do it!</h3>
-                <input className="inp" type="text" placeholder="Username" ref={inputUser}></input><br />
-                <input className="inp" type="text" placeholder="Password" ref={inputPass}></input><br />
-                <input className="inp" type="text" placeholder="Confirm Password" ref={inputConfPass}></input><br />
-                <button onClick={handleSave}>Log In</button>
-                <button onClick={makeAcc}>Register</button>
-            </div >
-        )
-    }
-    else {
-        return (
-            <div className="logInField">
-                <h3>Do it!</h3>
-                <input className="inp" type="text" placeholder="Username" ref={inputUser}></input><br />
-                <input className="inp" type="text" placeholder="Password" ref={inputPass}></input><br />
-                <button onClick={handleSave}>Log In</button>
-                <button onClick={makeAcc}>Register</button>
-            </div>
-        )
-    }
+  return (
+    <div className="logInField">
+      <h3>{isRegistering ? "Register" : "Log In"}</h3>
+      <input className="inp" type="text" placeholder="Username" ref={inputUser} /><br />
+      <input className="inp" type="password" placeholder="Password" ref={inputPass} /><br />
+      {isRegistering && (
+        <>
+          <input className="inp" type="password" placeholder="Confirm Password" ref={inputConfPass} /><br />
+        </>
+      )}
+      {error && <div style={{ color: "red" }}>{error}</div>}
+      <button onClick={isRegistering ? handleRegister : handleLogin}>
+        {isRegistering ? "Register" : "Log In"}
+      </button>
+      <button onClick={() => { setIsRegistering(!isRegistering); setError(""); }}>
+        {isRegistering ? "Back to Login" : "Register"}
+      </button>
+    </div>
+  );
 }
 
-
-export default Auth
+export default Auth;

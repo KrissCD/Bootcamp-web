@@ -1,29 +1,34 @@
-import ReactDOM from 'react-dom/client'
-import reach from 'react'
-import "./index.css"
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
 
-import Contact from './components/contact'
-import Auth from './components/Auth'
+import Contact from "./components/Contact";
+import Auth from "./components/Auth";
 
-let login =
-  <>
-    <h1>Hello, LOG IN!</h1>
-    <Auth />
-  </>
+function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [contacts, setContacts] = useState(["Alice", "Bob", "Charlie"]);
 
-let content =
-  <>
-    <h1>My Contacts</h1>
-    <Contact />
-  </>
+  const handleDelete = (index) => {
+    setContacts(contacts.filter((_, i) => i !== index));
+  };
 
-const logged_in = false
+  if (!loggedIn) {
+    return (
+      <>
+        <h1>Hello, LOG IN!</h1>
+        <Auth onLogin={() => setLoggedIn(true)} />
+      </>
+    );
+  }
 
-let shown = login
-
-if (logged_in) {
-  shown = content
+  return (
+    <>
+      <h1>My Contacts</h1>
+      <Contact contacts={contacts} onDelete={handleDelete} />
+    </>
+  );
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(shown);
+root.render(<App />);
